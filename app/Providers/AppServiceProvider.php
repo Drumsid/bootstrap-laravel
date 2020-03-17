@@ -30,5 +30,9 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('layouts.aside', function ($view) {
             $view->with('tagsCloud', \App\Tag::all());
         });
+
+        view()->composer('layouts.aside', function ($view) {
+            $view->with('bibleQuote', \App\Bible_quote::all()->random());
+        });
     }
 }
