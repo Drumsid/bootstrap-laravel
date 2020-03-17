@@ -39,7 +39,7 @@ class ArticlesController extends Controller
 
         $article->tags()->attach(request('tags'));
 
-        return redirect()->route('welcome');
+        return redirect()->route('welcome')->with('successMsg', 'Article create!!!');
     }
 
     public function edit(Article $article)
@@ -56,7 +56,7 @@ class ArticlesController extends Controller
         $article->tags()->detach();
         $article->tags()->attach(request('tags'));
 
-        return redirect(route('article.show', $article));
+        return redirect(route('article.show', $article))->with('successMsg', 'Article update!!!');
     }
 
     public function destroy($article)
@@ -66,7 +66,7 @@ class ArticlesController extends Controller
             $post->delete();
         }
 
-        return redirect()->route('welcome');
+        return redirect()->route('welcome')->with('successMsg', 'Article deleted!!!');
     }
 
     protected function validateArticle()

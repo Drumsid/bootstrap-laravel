@@ -5,7 +5,11 @@
 @section('content')
 
 <h3>All Feedback</h3>
-
+@if (session('successMsg'))
+<div class="alert alert-success" role="alert">
+  {{ session('successMsg') }}
+</div>
+@endif
 
 
 <table class="table">
@@ -23,7 +27,7 @@
                 <th scope="row">{{ $post->id }}</th>
                 <td>{{ date('d.m.Y', time($post->created_at)) }}</td>
                 <td>{{ $post->email }}</td>
-                <td><a href="{{ route('feedback.show', $post) }}">{{ $post->message }}</a></td>
+                <td><a href="{{ route('feedback.show', $post) }}">{{Str::limit($post->message, 10)}}</a></td>
             </tr>   
         @endforeach
 

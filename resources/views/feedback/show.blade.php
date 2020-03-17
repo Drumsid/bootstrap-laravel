@@ -6,6 +6,11 @@
 
 
       <h4>Подробный отзыв</h4>
+      @if (session('successMsg'))
+      <div class="alert alert-success" role="alert">
+        {{ session('successMsg') }}
+      </div>
+      @endif
       <article class="main-post blog-list-full-width">
         <div class="entry-content">
           <p>Отзыв от 

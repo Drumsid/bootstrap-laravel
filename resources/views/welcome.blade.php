@@ -6,7 +6,11 @@
       <h3 class="pb-4 mb-4 font-italic border-bottom">
         Все новости
       </h3>
-
+      @if (session('successMsg'))
+        <div class="alert alert-success" role="alert">
+          {{ session('successMsg') }}
+      </div>
+      @endif
       @forelse ($articles as $article)
       <article class="main-post blog-list-full-width">
         <div class="featured-post">

@@ -28,7 +28,7 @@ class FeedbackController extends Controller
 
         $article->save();
 
-        return redirect()->route('page.contacts');
+        return redirect()->route('page.contacts')->with('successMsg', 'Feedback created!!!');
     }
     // =====================================================================
     public function edit(Feedback $feedback)
@@ -40,7 +40,7 @@ class FeedbackController extends Controller
     {
         $feedback->update($this->validateUpdateFeedback());
 
-        return redirect(route('feedback.show', $feedback));
+        return redirect(route('feedback.show', $feedback))->with('successMsg', 'Feedback updated!!!');
     }
 
     public function destroy($feedback)
@@ -50,7 +50,7 @@ class FeedbackController extends Controller
             $post->delete();
         }
 
-        return redirect()->route('page.feedback');
+        return redirect()->route('page.feedback')->with('successMsg', 'Feedback deleted!!!');
     }
 
     protected function validateFeedback()

@@ -6,6 +6,11 @@
 
 <h3>Contacts</h3>
 <br>
+@if (session('successMsg'))
+<div class="alert alert-success" role="alert">
+  {{ session('successMsg') }}
+</div>
+@endif
 <div class="row flex contact">
     <div class="col-md-4">
         <div class="address-box center">
